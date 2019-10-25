@@ -8,25 +8,20 @@ namespace CompareDates
         {
             Console.WriteLine("Program compares two dates and indicates whether the date is earlier, equal or later than the second date");
 
-            DateTime date1 = new DateTime(2019, 5, 17, 12, 0, 0);
-            DateTime date2 = new DateTime(2017, 6, 14, 0, 0, 0);
+            Console.WriteLine("Add a date you want to compare in the format: yyyy/mm/dd");
+            Console.WriteLine("Add a year:");
+            int year = int.Parse(Console.ReadLine());
+            Console.WriteLine("Add a month:");
+            int month = int.Parse(Console.ReadLine());
+            Console.WriteLine("Add a day:");
+            int day = int.Parse(Console.ReadLine());
 
-            int result = DateTime.Compare(date1, date2);
-            string description;
+            DateTime today = DateTime.Today;
+            DateTime userDate = new DateTime(year, month, day);
 
-            if (result < 0)
-            {
-                description = "is earlier than";
-            }
-            else if (result == 0)
-            {
-                description = "is equal to";
-            }
-            else
-            {
-                description = "is later than";
-            }
-            Console.WriteLine("{0} {1} {2}", date1, description, date2);
+            Compare myComp = new Compare();
+            myComp.CompareDates(today, userDate);
+
             Console.ReadKey();
         }
     }
